@@ -1,0 +1,33 @@
+service: user-crud
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  region: eu-north-1
+  logRetentionInDays: 5
+  environment: ${file(env.yml):${self:custom.stage}}
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "dynamodb:*"
+        - "ec2:CreateNetworkInterface"
+        - "ec2:DescribeNetworkInterfaces"
+        - "ec2:DeleteNetworkInterface"
+        - "secretsmanager:GetSecretValue"
+      Resource:
+        - "*"
+
+custom:
+  stage: "${opt:stage, self:provider.stage}"
+  dynamodb:
+    stages:
+      - dev
+    start:
+      port: 41581
+      inMemory: true
+      migrate: true
+      sharedDb: true
+plugins:
+  - serverless-plugin-typescript
+  - serverless-dynamodb-local
+  - serverless-offline
