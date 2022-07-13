@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "lib": ["dom", "ES2020"],
+    "module": "CommonJS",
+    "moduleResolution": "node",
+
+    "sourceMap": true,
+    "declaration": true,
+
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "skipLibCheck": true,
+
+    "pretty": true,
+    "noUnusedLocals": true,
+    "newLine": "lf",
+    "importHelpers": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "outDir": "./dist",
+    "typeRoots": ["./node_modules/@types", "./typings"]
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
+}

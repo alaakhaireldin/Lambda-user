@@ -1,0 +1,10 @@
+node_modules
+report
+dist/
+**/doc/*
+.env
+coverage
+.build
+.serverless
+.dynamodb
+dump.rdb
